@@ -4,13 +4,14 @@ import java.util.List;
 public class ParkingLot {
 
     List<Slot> slots = new ArrayList<Slot>();
+    private int slotNo = 7;
 
     public ParkingLot(List<Slot> slot) {
         this.slots = slot;
     }
 
     public boolean isSlotAvailable(){
-        return slots.size()<= 7;
+        return slots.size()<= slotNo;
     }
 
     public void addCar(Car car){

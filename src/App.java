@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class App {
     public void run(){
+        int slotNo = 7;
         Scanner sc = new Scanner(System.in);
-        List<Slot> slots = new ArrayList<Slot>(7);
+        List<Slot> slots = new ArrayList<Slot>(slotNo);
         ParkingLot parkingLot = new ParkingLot(slots);
         while(true){
             if(parkingLot.isSlotAvailable()){
