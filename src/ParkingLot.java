@@ -1,19 +1,37 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParkingLot {
 
-    List<Slot> slots = new ArrayList<Slot>();
+    int sizeOfSlots = 2;
+    private final List<Slot> slots = new ArrayList<Slot>();
 
-    public ParkingLot(List<Slot> slot) {
-        this.slots = slot;
+    public ParkingLot(){
+        for(int i = 0 ;i<sizeOfSlots;i++){
+            slots.add(new Slot());
+        }
     }
 
-    public boolean isSlotAvailable(){
-        return slots.size()< 7;
+    public boolean isPlaceAvailable(){
+        for(int i = 0 ;i < sizeOfSlots; i++){
+            if(slots.get(i).isPlaceAvailable())
+                return true;
+        }
+        return false;
     }
 
-    public void addCar(Car car){
-        slots.add(new Slot(car));
+    public int giveLengthOfSlots(){
+        return slots.size();
+    }
+
+    public void parkCar(Car car){
+        for(int i =0 ;i<sizeOfSlots;i++){
+            if(slots.get(i).isPlaceAvailable()){
+                slots.get(i).addCar(car);
+                return;
+            }
+        }
+
     }
 }

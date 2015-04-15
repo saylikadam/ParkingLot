@@ -5,15 +5,14 @@ import java.util.Scanner;
 public class App {
     public void run(){
         Scanner sc = new Scanner(System.in);
-        List<Slot> slots = new ArrayList<Slot>(7);
-        ParkingLot parkingLot = new ParkingLot(slots);
+        ParkingLot parkingLot = new ParkingLot();
 
-        while(parkingLot.isSlotAvailable()){
+        while(parkingLot.isPlaceAvailable()){
             System.out.println("parking available,you can park your car");
             System.out.println("enter the car number");
             int carNo = sc.nextInt();
             Car car = new Car(carNo);
-            parkingLot.addCar(car);
+            parkingLot.parkCar(car);
             System.out.println("parking is done successfully!\n\n");
         }
         System.out.println("parking is not available");
