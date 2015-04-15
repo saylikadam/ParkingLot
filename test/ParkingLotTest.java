@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
@@ -38,4 +39,13 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(slots);
         assertFalse(parkingLot.isSlotAvailable());
     }
+
+    @Test
+    public void addCarShouldAddACarInList(){
+        List<Slot> slots = new ArrayList<Slot>();
+        ParkingLot pl = new ParkingLot(slots);
+        pl.addCar(new Car(12));
+        assertEquals(slots.size(), 1);
+    }
+
 }
