@@ -7,20 +7,16 @@ public class App {
         Scanner sc = new Scanner(System.in);
         List<Slot> slots = new ArrayList<Slot>(7);
         ParkingLot parkingLot = new ParkingLot(slots);
-        while(true){
-            if(parkingLot.isSlotAvailable()){
-                System.out.println("parking available,you can park your car");
-                System.out.println("enter the car number");
-            }
-            else{
-                System.out.println("parking is not available");
-                System.exit(1);
-            }
+
+        while(parkingLot.isSlotAvailable()){
+            System.out.println("parking available,you can park your car");
+            System.out.println("enter the car number");
             int carNo = sc.nextInt();
             Car car = new Car(carNo);
             parkingLot.addCar(car);
             System.out.println("parking is done successfully!\n\n");
         }
+        System.out.println("parking is not available");
     }
 
     public static void main(String[] args) {
