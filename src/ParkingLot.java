@@ -10,7 +10,7 @@ public class ParkingLot {
     }
 
     public boolean isSlotAvailable(){
-        return slots.size()<= 7;
+        return slots.size()<7;
     }
 
     public void addCar(Car car){
