@@ -19,6 +19,7 @@ public class App {
             int carNo = sc.nextInt();
             Car car = new Car(carNo);
             parkingLot.addCar(car);
+            System.out.println("parking is done successfully!\n\n");
         }
     }
 
