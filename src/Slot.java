@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Slot {
-    int noOfMaxCar = 2;
+    private final int noOfMaxCar = 2;
     private List<Car> cars ;
 
     public Slot() {

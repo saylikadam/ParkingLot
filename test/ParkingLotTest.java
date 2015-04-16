@@ -9,7 +9,7 @@ import static junit.framework.Assert.assertTrue;
 
 public class ParkingLotTest {
     @Test
-    public void isSlotAvailableShouldReturnTrueWhenSlotIsAvailable(){
+    public void isPlaceAvailableShouldReturnTrueWhenSlotIsAvailable(){
         ParkingLot parkingLot = new ParkingLot();
         assertTrue(parkingLot.isPlaceAvailable());
     }

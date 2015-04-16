@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class ParkingLot {
 
-    int sizeOfSlots = 2;
+    private final int sizeOfSlots = 2;
     private final List<Slot> slots = new ArrayList<Slot>();
 
     public ParkingLot(){
@@ -14,8 +15,8 @@ public class ParkingLot {
     }
 
     public boolean isPlaceAvailable(){
-        for(int i = 0 ;i < sizeOfSlots; i++){
-            if(slots.get(i).isPlaceAvailable())
+        for(Slot slot : slots){
+            if(slot.isPlaceAvailable())
                 return true;
         }
         return false;
@@ -26,12 +27,11 @@ public class ParkingLot {
     }
 
     public void parkCar(Car car){
-        for(int i =0 ;i<sizeOfSlots;i++){
-            if(slots.get(i).isPlaceAvailable()){
-                slots.get(i).addCar(car);
+        for(Slot slot :slots){
+            if(slot.isPlaceAvailable()){
+                slot.addCar(car);
                 return;
             }
         }
-
     }
 }
