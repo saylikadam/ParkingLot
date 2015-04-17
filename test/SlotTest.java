@@ -22,7 +22,7 @@ public class SlotTest {
     }
 
     @Test
-    public void isPlaceAvailableShouldReturnFalseWhenThePlaceIsAvailableInTheSingleSlot(){
+    public void isPlaceAvailableShouldReturnTrueWhenThePlaceIsAvailableInTheSingleSlot(){
         Slot slot = new Slot();
         slot.addCar(new Car(11));
         assertTrue(slot.isPlaceAvailable());

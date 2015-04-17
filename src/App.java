@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -7,12 +5,11 @@ public class App {
         Scanner sc = new Scanner(System.in);
         ParkingLot parkingLot = new ParkingLot();
 
-        while(parkingLot.isPlaceAvailable()){
+        while(parkingLot.isSlotAvailable()){
             System.out.println("parking available,you can park your car");
             System.out.println("enter the car number");
             int carNo = sc.nextInt();
-            Car car = new Car(carNo);
-            Driver driver = new Driver(car,parkingLot);
+            Driver driver = new Driver(carNo,parkingLot);
             driver.parkCar();
             System.out.println("parking is done successfully!\n\n");
         }

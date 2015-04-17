@@ -2,11 +2,11 @@
  * Created by saylik on 16/04/15.
  */
 public class Driver {
-    private Car car;
     private Parkable parkingLot;
+    private  Car car;
 
-    public Driver(Car car,ParkingLot parkingLot) {
-        this.car = car;
+    public Driver(int carNo , ParkingLot parkingLot) {
+        this.car = new Car(carNo);
         this.parkingLot = parkingLot;
 
     }

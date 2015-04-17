@@ -6,7 +6,6 @@ import java.util.List;
 public class ParkingLot implements Parkable {
 
     private final int sizeOfSlots = 2;
-
     private final List<Slot> slots = new ArrayList<Slot>();
 
     public ParkingLot(){
@@ -15,7 +14,7 @@ public class ParkingLot implements Parkable {
         }
     }
 
-    public boolean isPlaceAvailable(){
+    public boolean isSlotAvailable(){
         for(Slot slot : slots){
             if(slot.isPlaceAvailable())
                 return true;
@@ -29,10 +28,6 @@ public class ParkingLot implements Parkable {
                 return slot;
         }
         return null;
-    }
-
-    public int giveLengthOfSlots(){
-        return slots.size();
     }
 
 }
