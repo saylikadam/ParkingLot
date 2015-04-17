@@ -12,7 +12,8 @@ public class App {
             System.out.println("enter the car number");
             int carNo = sc.nextInt();
             Car car = new Car(carNo);
-            parkingLot.parkCar(car);
+            Driver driver = new Driver(car,parkingLot);
+            driver.parkCar();
             System.out.println("parking is done successfully!\n\n");
         }
         System.out.println("parking is not available");

@@ -10,7 +10,9 @@ public class Slot {
     }
 
     public void addCar(Car car){
-        cars.add(car);
+        if(isPlaceAvailable()){
+            cars.add(car);
+        }
     }
 
     public boolean isPlaceAvailable(){

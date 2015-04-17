@@ -15,16 +15,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void isSlotAvailableShouldReturnFalseWhenSlotIsNotAvailable(){
-        ParkingLot parkingLot = new ParkingLot();
-        parkingLot.parkCar(new Car(12));
-        parkingLot.parkCar(new Car(12));
-        parkingLot.parkCar(new Car(12));
-        parkingLot.parkCar(new Car(12));
-        assertFalse(parkingLot.isPlaceAvailable());
-    }
-
-    @Test
     public void giveLengthOfSlotsShouldGiveTheLengthOfSlots(){
         ParkingLot pl = new ParkingLot();
         assertEquals(pl.giveLengthOfSlots(),2);
