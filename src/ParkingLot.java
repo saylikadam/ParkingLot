@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class ParkingLot implements Parkable {
@@ -22,7 +20,7 @@ public class ParkingLot implements Parkable {
         return false;
     }
 
-    public Slot giveSlot(){
+    public Slot getSlot(){
         for(Slot slot : slots){
             if(slot.isPlaceAvailable())
                 return slot;
@@ -30,4 +28,7 @@ public class ParkingLot implements Parkable {
         return null;
     }
 
+    public void allow(Driver driver) {
+        driver.parkCar(this);
+    }
 }

@@ -1,16 +1,17 @@
 import java.util.Scanner;
 
 public class App {
+
     public void run(){
         Scanner sc = new Scanner(System.in);
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLots parkingLots = new ParkingLots();
 
-        while(parkingLot.isSlotAvailable()){
+        while(parkingLots.isParkingLotAvailable()){
             System.out.println("parking available,you can park your car");
             System.out.println("enter the car number");
             int carNo = sc.nextInt();
-            Driver driver = new Driver(carNo,parkingLot);
-            driver.parkCar();
+            Driver driver = new Driver(new Car(carNo));
+            parkingLots.allow(driver);
             System.out.println("parking is done successfully!\n\n");
         }
         System.out.println("parking is not available");
