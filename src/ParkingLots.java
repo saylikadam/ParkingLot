@@ -11,13 +11,13 @@ public class ParkingLots {
         }
     }
 
-    public void allow(Driver driver){
+    public boolean isCarParked(Car car){
         for(ParkingLot parkingLot : parkingLots){
-            if(parkingLot.isSlotAvailable()){
-                parkingLot.allow(driver);
-                return;
+            if(parkingLot.isCarParked(car)){
+                return  true;
             }
         }
+        return false;
     }
 
     public boolean isParkingLotAvailable(){
@@ -29,4 +29,12 @@ public class ParkingLots {
         return false;
     }
 
+    public Parkable getAvailableParkingLot() {
+        for(ParkingLot parkingLot : parkingLots){
+            if(parkingLot.isSlotAvailable()){
+                return  parkingLot;
+            }
+        }
+        return null;
+    }
 }

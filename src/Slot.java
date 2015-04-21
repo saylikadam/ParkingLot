@@ -15,10 +15,15 @@ public class Slot {
         }
     }
 
+    public boolean isParked(Car newCar){
+        for (Car car : cars) {
+            if(car.equals(newCar))
+                return true;
+        }
+        return false;
+    }
     public boolean isPlaceAvailable(){
         return cars.size()<noOfMaxCar;
     }
-
-
 
 }

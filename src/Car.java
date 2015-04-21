@@ -6,4 +6,16 @@ public class Car {
         this.number = number;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        return number == car.number;
+
+    }
+
+
 }
