@@ -1,43 +1,40 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class App {
 
-    public void run(){
+    private Car getCar(){
+        System.out.println("enter the car number");
         Scanner sc = new Scanner(System.in);
-        ParkingLots parkingLots = new ParkingLots();
-        Queue<Driver> drivers = getDrivers(parkingLots);
-
-        while(parkingLots.isParkingLotAvailable()){
-            System.out.println("parking available,you can park your car");
-            System.out.println("enter the car number");
-            int carNo = sc.nextInt();
-            Car car = new Car(carNo);
-            notifyDrivers(drivers, car);
-            System.out.println("parking is done successfully!\n\n");
-        }
-        System.out.println("parking is not available");
+        int carNo = sc.nextInt();
+        return new Car(carNo);
+    }
+    private void displayMenu(){
+        System.out.println("Enter 1 to park a car");
+        System.out.println("Enter 2 to release a car");
     }
 
-    private Queue<Driver> getDrivers(ParkingLots parkingLots) {
-        Queue<Driver> drivers = new LinkedList<Driver>();
-        drivers.add(new Driver(parkingLots));
-        drivers.add(new Driver(parkingLots));
-        return drivers;
+    private int getOption(){
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
     }
 
-    private void notifyDrivers(Queue<Driver> drivers, Car car) {
-        while(!drivers.isEmpty()){
-            Driver driver = drivers.poll();
-            if(driver.park(car))
-                drivers.add(driver);
-            break;
+    public void performAction(ParkingLot parkingLot,Driver driver){
+        while(true){
+            displayMenu();
+            int option = getOption();
+            if(option == 1)
+                driver.parkCar(parkingLot, getCar());//notifying a driver to park or release a car
+            else if(option == 2)
+                driver.releaseCar(parkingLot,getCar());
+            else
+                System.out.println("wrong input");
         }
     }
 
     public static void main(String[] args) {
         App app =new App();
-        app.run();
+        ParkingLot parkingLot = new ParkingLot();
+        Driver driver = new Driver();
+        app.performAction(parkingLot, driver);
     }
 }

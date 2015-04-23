@@ -13,7 +13,7 @@ public class Car {
 
         Car car = (Car) o;
 
-        return number == car.number;
+            return number == car.number;
 
     }
 

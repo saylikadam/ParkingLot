@@ -1,19 +1,22 @@
 public class Driver {
-    private ParkingLots parkingLots ;
 
-    public Driver(ParkingLots parkingLots) {
-        this.parkingLots = parkingLots;
-    }
-
-
-
-    public boolean park(Car car) {
-        Parkable parkingLot = parkingLots.getAvailableParkingLot();
-        if(parkingLot!=null){
+    public void parkCar(ParkingLot parkingLot,Car car) {
+        if(parkingLot.isSlotAvailable()){
             Slot slot = parkingLot.getSlot();
             slot.addCar(car);
-            return true;
+            System.out.println("parking done successfully");
         }
-        return false;
+        else
+            System.out.println("parking is not available");
+    }
+
+    public void releaseCar(ParkingLot parkingLot,Car car){
+        Slot slot = parkingLot.getSpecificSlot(car);
+        if(slot!=null){
+            slot.releaseCar(car);
+            System.out.println("car is removed");
+        }
+        else
+            System.out.println("there is no car of this number in parking lot");
     }
 }
