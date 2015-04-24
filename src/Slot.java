@@ -5,6 +5,7 @@ import java.util.List;
 public class Slot {
     private final int noOfMaxCar = 2;
     private List<Car> cars;
+    private Driver driver2 = new Driver();
 
     public Slot() {
         cars  = new ArrayList<Car>();
@@ -30,10 +31,11 @@ public class Slot {
         return false;
     }
 
-    public void releaseCar(Car outerCar) {
+    public void releaseCar(Car outerCar,Car carForPark,ParkingLot parkingLot) {
         for (Car car : cars) {
             if(car.equals(outerCar)){
                 cars.remove(car);
+                driver2.parkCar(parkingLot,carForPark);
                 return;
             }
         }

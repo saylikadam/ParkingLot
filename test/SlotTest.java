@@ -1,4 +1,3 @@
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertFalse;
@@ -27,12 +26,4 @@ public class SlotTest {
         assertTrue(slot.isPlaceAvailable());
     }
 
-    @Test
-    public void releaseCarShouldReleaseACarFromSlot(){
-        Slot slot = new Slot();
-        slot.addCar(new Car(11));
-        slot.addCar(new Car(12));
-        slot.releaseCar(new Car(12));
-        assertTrue(slot.isPlaceAvailable());
-    }
 }
